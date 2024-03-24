@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#leftRightbtn{
+    position: absolute;
+    top: 10%;
+    height: 100%;
+    width: 100%;
+    left: 10%;
+}
