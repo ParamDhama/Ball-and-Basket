@@ -6,6 +6,11 @@ let leftbtn = document.getElementById("leftBtn")
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 
+
+canvas.addEventListener('touchstart',(event)=>{
+    document.getElementById("touch").innerHTML = event
+})
+
 let x = 200;
 let y = 200;
 let radius = 30;
