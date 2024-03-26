@@ -1,7 +1,8 @@
 let canvas = document.querySelector("canvas")
 let c = canvas.getContext('2d')
 let leftbtn = document.getElementById("leftBtn")
-
+let basket_img = document.getElementById("basket");
+let ball_img = document.getElementById("ball");
 
 canvas.width = innerWidth;
 canvas.height = innerHeight;
@@ -10,12 +11,12 @@ let touch_s = 0;
 let touch_m = 0;
 
 
-let x = innerWidth-30;
+let x = innerWidth/2;
 let y = innerHeight-150;
 let radius = 60;
 let dx = innerWidth/150;
-let left = true;
-let right = true
+let left = false;
+let right = false;
 
 
 let ballList = [];
@@ -45,31 +46,29 @@ function ball() {
     this.dy = 1;
 
     this.draw = ()=>{
-        c.beginPath();
-        c.arc(this.x,this.y,this.radius,0,Math.PI*2,false);
-        c.fillStyle = `rgba(255, 166, 0)`
-        c.fill()
-        c.strokeStyle = `rgba(255, 166, 0)`
-        c.stroke();
+        // c.beginPath();
+        // c.arc(this.x,this.y,this.radius,0,Math.PI*2,false);
+        // c.fillStyle = `#ffd166`
+        // c.fill()
+        // c.strokeStyle = `#ffd166`
+        // c.stroke();
+        c.drawImage(ball_img,this.x-this.radius,this.y,this.radius,this.radius)
     }
 
     this.update = ()=>{
         this.y += this.dy;
         this.draw();
     }
-
+    
 }
-function animate() {
-    requestAnimationFrame(animate);
+let animate = function() {
     if (!gameOver) {
+        requestAnimationFrame(animate);
         c.clearRect(0,0,innerWidth,innerHeight);
         
         const date = new Date();
         if (-3>=date.getSeconds()-sec||date.getSeconds()-sec >=3) {
-            // console.log(date.getSeconds()-x)
-            // for (let i = 0; i < 10; i++) {
             ballList.push(new ball())    
-            // }
             sec = date.getSeconds();        
             
         }
@@ -95,19 +94,23 @@ function animate() {
                 
             }
         }
-    
-        c.beginPath();
-        c.arc(x, y, radius, Math.PI*2, Math.PI,false);
-        c.fillStyle = "orange"
-        c.fill();
-    
-        c.stroke();
-    
+        
+        // c.beginPath();
+        // c.arc(x, y, radius, Math.PI*2, Math.PI,false);
+        // c.fillStyle = "#06D6A0";
+        // c.fill();
+        // c.strokeStyle = "#039c73"
+        // c.stroke();
+        c.drawImage(basket_img,x-radius,y-radius,radius*2,radius*1.5);
+        
+        
         c.beginPath()
-        c.rect(0,innerHeight-60,innerWidth,60);
-        c.fillStyle = "red";
+        c.rect(-50,innerHeight-60,innerWidth+200,100);
+        c.fillStyle = "red"
         c.fill()
-        c.stroke
+        c.lineWidth = 10
+        c.strokeStyle= "orange"
+        c.stroke()
         if (x-radius<=0) {
             x = radius;
         }
@@ -122,7 +125,8 @@ function animate() {
         }
     }
     if (gameOver) {
-        document.getElementById("GameOver").style.visibility = "visible"
+        document.getElementById("GameEnd").style.visibility = "visible"
+        document.querySelector("body").style.cursor = "pointer"
     }
 }
 
@@ -130,17 +134,14 @@ animate();
 
 
 addEventListener("keydown",(event)=>{
-    console.log(event['code']);
     if (event['code']=='ArrowLeft'||event['code']=="KeyA") {
         left = true;
     }   
     if (event['code']=='ArrowRight' ||event['code']=="KeyD") {
         right = true;
     }
-    // console.log(x,y)
 })
 addEventListener("keyup",(event)=>{
-    console.log(event['code']);
     if (event['code']=='ArrowLeft'||event['code']=="KeyA") {
         left = false;
     }
@@ -161,3 +162,17 @@ window.addEventListener("touchstart",(event)=>{
     touch_s = event.touches[0].clientX;
     
 })
+
+
+function restart() {
+    location.reload()
+    // gameOver = false;
+    // life = 3;
+    // score = 0;
+    // console.log("run");
+    // ballList = []
+    // document.querySelector("body").style.cursor = "none"
+    // document.getElementById("GameEnd").style.visibility = "hidden"
+
+    // animate();
+}

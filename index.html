@@ -6,19 +6,23 @@
     <title>Basket Fruits</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body ontouchmove="touch_move(event)" ontouchend="show(event)">
-    <div id="top">
-        <div id="Score">Score: 0</div>
-        <div id="GameName">Ball And Basket</div>
-        <div id="Life">Life: 3</div>
+<body ontouchmove="touch_move(event)" >
+    <div id="width2">Only play in laptop or pc</div>
+    <div id="width1">
+
+        <div id="GameEnd">
+            <div id="GameOver" >Game Over <br><button id="Restart" onclick="restart();">Restart</button></div>
+            
+        </div>
+        <div id="top">
+            <div id="Score">Score: 0</div>
+            <div id="GameName">Ball and Basket</div>
+            <div id="Life">Life: 3</div>
+        </div>
+        <canvas></canvas>
+        <img src="./—Pngtree—basket_378623.png" alt="" id="basket">
+        <img src="./ball.png" alt="" id="ball" height="10px" width="10px">
     </div>
-    <h1 id="GameOver">GameOver</h1>
-    <canvas></canvas>
-    <!-- <h1 id="touch">Hllo</h1> -->
-    <!-- <div id="leftRightbtn">
-        <button id="leftBtn" style="width: 10%; height: 10%;"></button>
-        <button id="rightBtn" style="width: 10%; height: 10%;"></button>
-    </div> -->
     <script src="index.js"></script>
 </body>
 </html>
