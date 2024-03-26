@@ -134,7 +134,7 @@ addEventListener("keydown",(event)=>{
     if (event['code']=='ArrowLeft'||event['code']=="KeyA") {
         left = true;
     }   
-    if (event['code']=='ArrowRight') {
+    if (event['code']=='ArrowRight' ||event['code']=="KeyD") {
         right = true;
     }
     // console.log(x,y)
@@ -144,34 +144,10 @@ addEventListener("keyup",(event)=>{
     if (event['code']=='ArrowLeft'||event['code']=="KeyA") {
         left = false;
     }
-    if (event['code']=='ArrowRight') {
+    if (event['code']=='ArrowRight'||event['code']=="KeyD") {
         right = false;
     }
-    // console.log(x,y)
 })
-// leftbtn.addEventListener("mousedown",(event)=>{
-//     // console.log(x)
-//     x++;
-// })
-
-// document.getElementById("leftBtn").addEventListener("touchstart", function(event) {
-//     //fires on mouse down
-//     console.log(true);
-//     x-=dx;
-// }, false);
-// document.getElementById("rightBtn").addEventListener("touchstart", function(event) {
-//     //fires on mouse down
-//     x+=dx;
-//     console.log(true);
-// }, false);
-
-// function left() {
-//     console.log(x);
-// }
-
-
-// function touchstart(event) {
-// }
 
 function touch_move(event) {
     touch_m = event.touches[0].clientX;
@@ -184,9 +160,4 @@ function touch_move(event) {
 window.addEventListener("touchstart",(event)=>{
     touch_s = event.touches[0].clientX;
     
-})
-window.addEventListener("touchend",(event)=>{
-    // touch_s = event.touches[0].clientX;
-    // document.getElementById("touch").innerHTML = touch_Pos;
-
 })
