@@ -46,12 +46,6 @@ function ball() {
     this.dy = 1;
 
     this.draw = ()=>{
-        // c.beginPath();
-        // c.arc(this.x,this.y,this.radius,0,Math.PI*2,false);
-        // c.fillStyle = `#ffd166`
-        // c.fill()
-        // c.strokeStyle = `#ffd166`
-        // c.stroke();
         c.drawImage(ball_img,this.x-this.radius,this.y,this.radius,this.radius)
     }
 
@@ -95,12 +89,6 @@ let animate = function() {
             }
         }
         
-        // c.beginPath();
-        // c.arc(x, y, radius, Math.PI*2, Math.PI,false);
-        // c.fillStyle = "#06D6A0";
-        // c.fill();
-        // c.strokeStyle = "#039c73"
-        // c.stroke();
         c.drawImage(basket_img,x-radius,y-radius,radius*2,radius*1.5);
         
         
